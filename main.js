@@ -17,4 +17,9 @@ app.controller("angleCRUDctrl", function($scope) {
     email: "jaeday@hurray.na",
     phone: "867-5309"
   });
+
+  $scope.addContact = function() {
+    $scope.contacts.push($scope.newContact)
+    $scope.newContact = null;
+  }
 });

@@ -9,12 +9,31 @@
 <body>
   <div class="container" ng-app="angleCRUD" ng-controller="angleCRUDctrl">
     <h1>Angular CRUD</h1>
-    <table class="table">
+
+    <form id="addContact">
+      <div class="form-group col-xs-4">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" ng-model="newContact.name"placeholder="John Doe">
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" ng-model="newContact.email"placeholder="Email">
+      </div>
+      <div class="form-group col-xs-4">
+        <label for="Phone">Phone</label>
+        <input type="text" class="form-control" ng-model="newContact.phone"placeholder="867-5309">
+      </div>
+      <div class="btnContainer">
+        <button class="btn btn-default btn-info" ng-click="addContact()">Add Contact</button>
+      </div>
+    </form>
+
+    <table class="table" id="contactList">
       <tbody>
         <tr>
           <th ng-repeat="(key, value) in contacts[0] track by $index">{{key.substr(0,1).toUpperCase() + key.substr(1)}}</th>
         </tr>
-        <tr ng-repeat="(key, contact) in contacts">
+        <tr ng-repeat="(key, contact) in contacts track by $index">
           <td ng-repeat="(field, value) in contact">{{value}}</td>
         </tr>
       </tbody>

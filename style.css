@@ -1,0 +1,12 @@
+body {
+  min-width: 420px;
+}
+
+#contactList {
+  margin-top: 24px;
+}
+
+.btnContainer {
+  width: 100%;
+  text-align: center;
+}
