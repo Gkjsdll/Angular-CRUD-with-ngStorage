@@ -29,6 +29,12 @@
       </div>
     </form>
 
+    <form id="filterForm">
+      <div class="form-group">
+        <input type="text" ng-model="filterText" class="form-control" placeholder="Search...">
+      </div>
+    </form>
+
     <div class="modal fade" role="dialog" id="modEditContact">
       <div class="modal-dialogue">
         <div class="modal-content">
@@ -60,7 +66,7 @@
           <th ng-repeat="(key, value) in contacts[0] track by $index">{{key.substr(0,1).toUpperCase() + key.substr(1)}}</th>
           <th>Remove</th>
         </tr>
-        <tr ng-repeat="(key, contact) in contacts track by $index">
+        <tr ng-repeat="(key, contact) in contacts | filter:filterText track by $index">
           <td ng-repeat="(field, value) in contact" ng-dblclick="editContact($index)">{{value}}</td>
           <td>
             <button class="btn btn-default btn-danger btn-sm" ng-click="removeContact()">

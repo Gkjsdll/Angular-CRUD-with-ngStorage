@@ -10,3 +10,7 @@ body {
   width: 100%;
   text-align: center;
 }
+
+#filterForm {
+  margin-top: 24px;
+}
