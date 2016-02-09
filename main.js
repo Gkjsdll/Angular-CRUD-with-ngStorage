@@ -11,8 +11,12 @@ app.controller("angleCRUDctrl", function($scope, $localStorage) {
   $scope.contacts = $localStorage.contacts;
 
   $scope.addContact = function() {
-    // $scope.contacts.push($scope.newContact)
     $localStorage.contacts.push($scope.newContact)
     $scope.newContact = null;
+  }
+
+  $scope.removeContact = function() {
+    var index = $localStorage.contacts.indexOf(this.contact);
+    $localStorage.contacts.splice(index, 1);
   }
 });
