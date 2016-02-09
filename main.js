@@ -41,8 +41,6 @@ app.controller("angleCRUDctrl", function($scope, $localStorage) {
   }
 
 
-  // var editing;
-
   $scope.editContact = function($index) {
     var editing = this;
     var index = $localStorage.contacts.indexOf(this.contact);
@@ -58,4 +56,5 @@ app.controller("angleCRUDctrl", function($scope, $localStorage) {
       $("#modEditContact").modal('toggle');
     });
   }
+
 });
