@@ -2,24 +2,17 @@
 
 var app = angular.module("angleCRUD", ["ngStorage"]);
 
-app.controller("angleCRUDctrl", function($scope) {
+app.controller("angleCRUDctrl", function($scope, $localStorage) {
 
-  $scope.contacts = [];
+  if(!$localStorage.contacts) $localStorage.contacts = [];
 
-  $scope.contacts.push({
-    name: "John Doe",
-    email: "joedoe@bro.co",
-    phone: "867-5309"
-  });
+  $localStorage.contacts;
 
-  $scope.contacts.push({
-    name: "Jane Doe",
-    email: "jaeday@hurray.na",
-    phone: "867-5309"
-  });
+  $scope.contacts = $localStorage.contacts;
 
   $scope.addContact = function() {
-    $scope.contacts.push($scope.newContact)
+    // $scope.contacts.push($scope.newContact)
+    $localStorage.contacts.push($scope.newContact)
     $scope.newContact = null;
   }
 });
