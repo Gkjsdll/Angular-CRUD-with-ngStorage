@@ -8,7 +8,10 @@ $($updateContact = $("#updateContact"));
 
 app.controller("angleCRUDctrl", function($scope, $localStorage) {
 
-  if(!$localStorage.contacts) $localStorage.contacts = [];
+  if(!$localStorage.contacts){
+    $localStorage.contacts = [];
+    swal("Double click on a contact's info to edit it.");
+  }
 
   $localStorage.contacts;
 
@@ -48,11 +51,10 @@ app.controller("angleCRUDctrl", function($scope, $localStorage) {
     $scope.modalEditField = field;
     $scope.modalEditValue = this.value;
     $updateContact.on("click", function(target) {
-      debugger;
       $localStorage.contacts[index][editing.field] = $scope.newFieldValue;
-      $scope.contacts[index][editing.field] = $scope.newFieldValue;
       $scope.newFieldValue = null;
       $updateContact.off("click");
+      location.reload(); //page's text not updating automatically
       $("#modEditContact").modal('toggle');
     });
   }
