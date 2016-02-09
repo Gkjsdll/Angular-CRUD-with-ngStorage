@@ -9,6 +9,16 @@
 <body>
   <div class="container" ng-app="angleCRUD" ng-controller="angleCRUDctrl">
     <h1>Angular CRUD</h1>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th ng-repeat="(key, value) in contacts[0] track by $index">{{key.substr(0,1).toUpperCase() + key.substr(1)}}</th>
+        </tr>
+        <tr ng-repeat="(key, contact) in contacts">
+          <td ng-repeat="(field, value) in contact">{{value}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
